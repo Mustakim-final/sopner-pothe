@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="মাসিক চাঁদা"
+        android:gravity="center_horizontal"
+        android:textSize="20sp"
+        android:id="@+id/title_ID"
+        android:layout_marginTop="40dp">
+
+    </TextView>
+
+    <EditText
+        android:id="@+id/editorbillName_ID"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/title_ID"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginBottom="10dp"
+        android:hint="নাম...">
+
+    </EditText>
+
+    <EditText
+        android:id="@+id/editorbilAomunt_ID"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/editorbillName_ID"
+        android:layout_margin="10dp"
+        android:layout_marginTop="10dp"
+        android:hint="টাকার পরিমাণ">
+
+    </EditText>
+
+    <EditText
+        android:id="@+id/editorbillDate_ID"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:layout_below="@id/editorbilAomunt_ID"
+        android:layout_marginTop="10dp"
+        android:hint="তারিখঃ মাস/ দিন / বছর">
+
+    </EditText>
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/editorbillDate_ID"
+        android:layout_marginTop="10dp"
+        android:layout_margin="10dp"
+        android:hint="নিশ্চিত করণ"
+        android:id="@+id/editorbillStatus_ID">
+
+    </EditText>
+
+    <Button
+        android:id="@+id/editorbillSubmit_ID"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/editorbillStatus_ID"
+        android:layout_marginStart="50dp"
+        android:layout_marginTop="50dp"
+        android:layout_marginEnd="50dp"
+        android:layout_marginBottom="50dp"
+        android:text="update"
+        android:textSize="18sp">
+
+    </Button>
+
+</RelativeLayout>

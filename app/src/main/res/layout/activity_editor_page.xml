@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:stretchColumns="1,2,3,4,5"
+    android:layout_margin="8dp"
+    tools:context=".EditorPageActivity">
+
+    <TableRow>
+
+        <TextView
+            android:text="Name"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:padding="10dp"
+            android:layout_column="1"
+            >
+        </TextView>
+        <TextView
+            android:text="Amount"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:padding="10dp"
+            android:layout_column="1"
+            >
+        </TextView>
+        <TextView
+            android:text="Date"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:padding="10dp"
+            android:layout_column="1"
+            >
+        </TextView>
+
+        <TextView
+            android:text="Status"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:padding="10dp"
+            android:layout_column="1"
+            >
+        </TextView>
+    </TableRow>
+
+    <com.baoyz.swipemenulistview.SwipeMenuListView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/listview_ID"
+        >
+
+    </com.baoyz.swipemenulistview.SwipeMenuListView>
+
+</TableLayout>

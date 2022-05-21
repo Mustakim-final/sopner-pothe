@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">স্বপনের পথে অগ্রযাত্রা</string>
+    <string name="secret">আপনার গোপন নাম্বার পেতে কর্তৃপক্ষের কাছে যোগাযোগ করুন</string>
+    <string name="nirdeshona">নিচের শূণস্থান গুলি সঠিক ভাবে পূরণ করুন। টকা পাঠানোর নাম্বার বিকাশ ০১৭৯২৫২০০১৬,রকেট ০১৭৯২৫২০০১৬৯</string>
+    <string name="notice"> মোট টাকা এবং বাকী শুধু মাত্র যার যার  পেইজ এ দেখানোর জন্য</string>
+
+    <string name="open">Open</string>
+    <string name="close">Close</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+</resources>

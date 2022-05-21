@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showin="navigation_view">
+
+    <group android:checkableBehavior="single">
+
+
+        <item android:id="@+id/editProfile_ID"
+            android:icon="@drawable/ic_baseline_account_box_24"
+            android:title="Profile">
+
+        </item>
+
+        <item
+            android:id="@+id/profile_ID"
+            android:title="Account"
+            android:icon="@drawable/ic_baseline_add_to_photos_24"
+            >
+        </item>
+
+
+
+        <item android:title="Due and Amount"
+            android:icon="@drawable/ic_baseline_iso_24"
+            android:id="@+id/dueAndAmount_ID">
+
+        </item>
+
+        <item
+            android:title="Log Out"
+            android:id="@+id/logout_ID"
+            android:icon="@drawable/ic_baseline_power_settings_new_24"
+            >
+
+        </item>
+
+
+    </group>
+
+    <item android:title="Extra">
+        <menu>
+            <item
+                android:title="Editor"
+                android:id="@+id/editor_ID"
+                android:icon="@drawable/ic_baseline_edit_24"
+                >
+
+            </item>
+            <item
+                android:title="Notice"
+                android:id="@+id/notice_ID"
+                android:icon="@drawable/ic_baseline_announcement_24"
+                >
+
+            </item>
+        </menu>
+    </item>
+
+</menu>

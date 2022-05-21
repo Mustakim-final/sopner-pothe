@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="..\:/Android/dremproject-master/app/src/main/res/layout/activity_bill_pay.xml" value="0.22826086956521738" />
+        <entry key="..\:/Android/dremproject-master/app/src/main/res/layout/activity_editor_home.xml" value="0.22826086956521738" />
+        <entry key="..\:/Android/dremproject-master/app/src/main/res/layout/activity_editor_login.xml" value="0.22826086956521738" />
+        <entry key="..\:/Android/dremproject-master/app/src/main/res/layout/activity_editor_manaul.xml" value="0.22826086956521738" />
+        <entry key="..\:/Android/dremproject-master/app/src/main/res/layout/activity_editor_notice.xml" value="0.22826086956521738" />
+        <entry key="..\:/Android/dremproject-master/app/src/main/res/layout/activity_editor_page.xml" value="0.22826086956521738" />
+        <entry key="..\:/Android/dremproject-master/app/src/main/res/layout/activity_editor_personal.xml" value="0.22826086956521738" />
+        <entry key="..\:/Android/dremproject-master/app/src/main/res/layout/activity_home.xml" value="0.11302083333333333" />
+        <entry key="..\:/Android/dremproject-master/app/src/main/res/layout/activity_main.xml" value="0.22826086956521738" />
+        <entry key="..\:/Android/dremproject-master/app/src/main/res/layout/activity_main_profile.xml" value="0.22826086956521738" />
+        <entry key="..\:/Android/dremproject-master/app/src/main/res/layout/activity_member.xml" value="0.22826086956521738" />
+        <entry key="..\:/Android/dremproject-master/app/src/main/res/layout/activity_message.xml" value="0.22826086956521738" />
+        <entry key="..\:/Android/dremproject-master/app/src/main/res/layout/activity_personal.xml" value="0.22826086956521738" />
+        <entry key="..\:/Android/dremproject-master/app/src/main/res/layout/activity_profile.xml" value="0.22826086956521738" />
+        <entry key="..\:/Android/dremproject-master/app/src/main/res/layout/activity_reg.xml" value="0.22826086956521738" />
+        <entry key="..\:/Android/dremproject-master/app/src/main/res/layout/bar_layout.xml" value="0.22826086956521738" />
+        <entry key="..\:/Android/dremproject-master/app/src/main/res/layout/chat_item_left.xml" value="0.22826086956521738" />
+        <entry key="..\:/Android/dremproject-master/app/src/main/res/layout/chat_item_right.xml" value="0.22826086956521738" />
+        <entry key="..\:/Android/dremproject-master/app/src/main/res/layout/dialouge_item.xml" value="0.22826086956521738" />
+        <entry key="..\:/Android/dremproject-master/app/src/main/res/layout/editor_dialouge_item.xml" value="0.22826086956521738" />
+        <entry key="..\:/Android/dremproject-master/app/src/main/res/layout/editor_personal_item.xml" value="0.22826086956521738" />
+        <entry key="..\:/Android/dremproject-master/app/src/main/res/layout/editor_profile_item.xml" value="0.22826086956521738" />
+        <entry key="..\:/Android/dremproject-master/app/src/main/res/layout/editor_user_item.xml" value="0.22826086956521738" />
+        <entry key="..\:/Android/dremproject-master/app/src/main/res/layout/fragment_chat.xml" value="0.22826086956521738" />
+        <entry key="..\:/Android/dremproject-master/app/src/main/res/layout/fragment_editor_extra.xml" value="0.22826086956521738" />
+        <entry key="..\:/Android/dremproject-master/app/src/main/res/layout/fragment_editor_member.xml" value="0.22826086956521738" />
+        <entry key="..\:/Android/dremproject-master/app/src/main/res/layout/fragment_member.xml" value="0.22826086956521738" />
+        <entry key="..\:/Android/dremproject-master/app/src/main/res/layout/fragment_personal.xml" value="0.22826086956521738" />
+        <entry key="..\:/Android/dremproject-master/app/src/main/res/layout/menu_item.xml" value="0.20854700854700856" />
+        <entry key="..\:/Android/dremproject-master/app/src/main/res/layout/notice_layout.xml" value="0.22826086956521738" />
+        <entry key="..\:/Android/dremproject-master/app/src/main/res/layout/personal_item.xml" value="0.22826086956521738" />
+        <entry key="..\:/Android/dremproject-master/app/src/main/res/layout/profile_item.xml" value="0.22826086956521738" />
+        <entry key="..\:/Android/dremproject-master/app/src/main/res/layout/slider_item.xml" value="0.22826086956521738" />
+        <entry key="..\:/Android/dremproject-master/app/src/main/res/layout/user_item.xml" value="0.25416666666666665" />
+        <entry key="..\:/Android/dremproject-master/app/src/main/res/menu/menu.xml" value="0.1" />
+        <entry key="..\:/Mustakim/Android/OurProject/app/src/main/res/drawable-v24/ic_baseline_perm_identity_24.xml" value="0.24010416666666667" />
+        <entry key="..\:/Mustakim/Android/OurProject/app/src/main/res/drawable/left_chat_draw.xml" value="0.2546875" />
+        <entry key="..\:/Mustakim/Android/OurProject/app/src/main/res/drawable/right_chat_draw.xml" value="0.2546875" />
+        <entry key="..\:/Mustakim/Android/OurProject/app/src/main/res/layout/activity_bill_pay.xml" value="0.2234375" />
+        <entry key="..\:/Mustakim/Android/OurProject/app/src/main/res/layout/activity_editor_home.xml" value="0.23854166666666668" />
+        <entry key="..\:/Mustakim/Android/OurProject/app/src/main/res/layout/activity_editor_login.xml" value="0.23854166666666668" />
+        <entry key="..\:/Mustakim/Android/OurProject/app/src/main/res/layout/activity_editor_manaul.xml" value="0.23854166666666668" />
+        <entry key="..\:/Mustakim/Android/OurProject/app/src/main/res/layout/activity_editor_notice.xml" value="0.25416666666666665" />
+        <entry key="..\:/Mustakim/Android/OurProject/app/src/main/res/layout/activity_editor_page.xml" value="0.23854166666666668" />
+        <entry key="..\:/Mustakim/Android/OurProject/app/src/main/res/layout/activity_editor_personal.xml" value="0.23854166666666668" />
+        <entry key="..\:/Mustakim/Android/OurProject/app/src/main/res/layout/activity_home.xml" value="0.25416666666666665" />
+        <entry key="..\:/Mustakim/Android/OurProject/app/src/main/res/layout/activity_main.xml" value="0.24010416666666667" />
+        <entry key="..\:/Mustakim/Android/OurProject/app/src/main/res/layout/activity_main_profile.xml" value="0.22447916666666667" />
+        <entry key="..\:/Mustakim/Android/OurProject/app/src/main/res/layout/activity_member.xml" value="0.23489583333333333" />
+        <entry key="..\:/Mustakim/Android/OurProject/app/src/main/res/layout/activity_message.xml" value="0.25416666666666665" />
+        <entry key="..\:/Mustakim/Android/OurProject/app/src/main/res/layout/activity_personal.xml" value="0.23854166666666668" />
+        <entry key="..\:/Mustakim/Android/OurProject/app/src/main/res/layout/activity_profile.xml" value="0.23854166666666668" />
+        <entry key="..\:/Mustakim/Android/OurProject/app/src/main/res/layout/activity_reg.xml" value="0.25416666666666665" />
+        <entry key="..\:/Mustakim/Android/OurProject/app/src/main/res/layout/bar_layout.xml" value="0.25416666666666665" />
+        <entry key="..\:/Mustakim/Android/OurProject/app/src/main/res/layout/chat_item_left.xml" value="0.23854166666666668" />
+        <entry key="..\:/Mustakim/Android/OurProject/app/src/main/res/layout/chat_item_right.xml" value="0.23854166666666668" />
+        <entry key="..\:/Mustakim/Android/OurProject/app/src/main/res/layout/dialouge_item.xml" value="0.25416666666666665" />
+        <entry key="..\:/Mustakim/Android/OurProject/app/src/main/res/layout/editor_dialouge_item.xml" value="0.23854166666666668" />
+        <entry key="..\:/Mustakim/Android/OurProject/app/src/main/res/layout/editor_personal_item.xml" value="0.23854166666666668" />
+        <entry key="..\:/Mustakim/Android/OurProject/app/src/main/res/layout/editor_profile_item.xml" value="0.25416666666666665" />
+        <entry key="..\:/Mustakim/Android/OurProject/app/src/main/res/layout/editor_user_item.xml" value="0.23854166666666668" />
+        <entry key="..\:/Mustakim/Android/OurProject/app/src/main/res/layout/fragment_chat.xml" value="0.22083333333333333" />
+        <entry key="..\:/Mustakim/Android/OurProject/app/src/main/res/layout/fragment_editor_extra.xml" value="0.23854166666666668" />
+        <entry key="..\:/Mustakim/Android/OurProject/app/src/main/res/layout/fragment_editor_member.xml" value="0.23854166666666668" />
+        <entry key="..\:/Mustakim/Android/OurProject/app/src/main/res/layout/fragment_member.xml" value="0.22083333333333333" />
+        <entry key="..\:/Mustakim/Android/OurProject/app/src/main/res/layout/fragment_personal.xml" value="0.23854166666666668" />
+        <entry key="..\:/Mustakim/Android/OurProject/app/src/main/res/layout/hader_layout.xml" value="0.21666666666666667" />
+        <entry key="..\:/Mustakim/Android/OurProject/app/src/main/res/layout/menu_item.xml" value="0.23854166666666668" />
+        <entry key="..\:/Mustakim/Android/OurProject/app/src/main/res/layout/notice_layout.xml" value="0.23854166666666668" />
+        <entry key="..\:/Mustakim/Android/OurProject/app/src/main/res/layout/personal_item.xml" value="0.23854166666666668" />
+        <entry key="..\:/Mustakim/Android/OurProject/app/src/main/res/layout/profile_item.xml" value="0.23854166666666668" />
+        <entry key="..\:/Mustakim/Android/OurProject/app/src/main/res/layout/slider_item.xml" value="0.2234375" />
+        <entry key="..\:/Mustakim/Android/OurProject/app/src/main/res/layout/user_item.xml" value="0.20260416666666667" />
+        <entry key="..\:/Mustakim/Android/OurProject/app/src/main/res/menu/menu.xml" value="0.21770833333333334" />
+      </map>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="Android Studio default JDK" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/build/classes" />
+  </component>
+  <component name="ProjectType">
+    <option name="id" value="Android" />
+  </component>
+</project>

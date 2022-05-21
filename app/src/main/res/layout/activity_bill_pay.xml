@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".BillPayActivity">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="মাসিক চাঁদা"
+        android:gravity="center_horizontal"
+        android:textSize="20sp"
+        android:id="@+id/title_ID"
+        android:layout_marginTop="40dp">
+
+    </TextView>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/nirdeshona"
+        android:layout_below="@id/title_ID"
+        android:layout_marginTop="20dp"
+        android:textColor="#C11C10"
+        android:id="@+id/nirdesona_ID"
+        android:gravity="center_horizontal"
+        android:textSize="15sp"
+        >
+    </TextView>
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="নাম..."
+        android:layout_below="@id/nirdesona_ID"
+        android:layout_marginTop="20dp"
+        android:layout_margin="10dp"
+        android:id="@+id/billName_ID">
+
+    </EditText>
+
+    <EditText
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/billName_ID"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="10dp"
+        android:hint="টাকার পরিমাণ"
+        android:id="@+id/bilAomunt_ID">
+
+    </EditText>
+
+    <EditText
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@id/bilAomunt_ID"
+        android:layout_below="@id/billName_ID"
+        android:layout_marginTop="10dp"
+        android:hint="তারিখঃ মাস/ দিন / বছর"
+        android:id="@+id/billDate_ID">
+
+    </EditText>
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/bilAomunt_ID"
+        android:layout_marginTop="10dp"
+        android:layout_margin="10dp"
+        android:hint="ট্রানজেকশন নাম্বার"
+        android:id="@+id/billTrans_ID">
+
+    </EditText>
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/billTrans_ID"
+        android:layout_marginTop="10dp"
+        android:layout_margin="10dp"
+        android:hint=""
+        android:text="Not"
+        android:visibility="gone"
+        android:id="@+id/billStatus_ID">
+
+    </EditText>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/billStatus_ID"
+        android:layout_marginTop="30dp"
+        android:layout_margin="50dp"
+        android:text="submit"
+        android:textSize="18sp"
+        android:id="@+id/billSubmit_ID">
+
+    </Button>
+
+
+</RelativeLayout>
