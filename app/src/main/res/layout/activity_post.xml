@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".PostActivity">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp">
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:src="@mipmap/ic_launcher"
+            android:layout_marginLeft="10dp"
+            android:id="@+id/myProfile_ID">
+
+        </de.hdodenhof.circleimageview.CircleImageView>
+
+        <TextView
+            android:id="@+id/myName_ID"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="29dp"
+            android:layout_marginTop="25dp"
+            android:layout_toRightOf="@+id/myProfile_ID"
+            android:text="Name"
+            android:textSize="25sp">
+
+        </TextView>
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <EditText
+            android:id="@+id/postText_ID"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:layout_weight="0.25"
+            android:hint="Enter Image Name"></EditText>
+
+        <Button
+            android:id="@+id/savePostBtn_ID"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_weight="0.17"
+            android:text="Post">
+
+        </Button>
+    </RelativeLayout>
+
+
+
+
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:id="@+id/imageView_ID"
+        android:layout_marginTop="10dp"
+        android:layout_height="300dp">
+
+    </ImageView>
+
+    <ProgressBar
+        android:layout_width="wrap_content"
+        android:visibility="gone"
+        android:id="@+id/progressBar_ID"
+        android:layout_height="wrap_content">
+
+    </ProgressBar>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:id="@+id/choceImage_ID"
+        android:text="Add image">
+
+    </Button>
+
+
+
+
+</LinearLayout>

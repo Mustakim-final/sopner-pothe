@@ -16,6 +16,8 @@
         <entry key="..\:/Android/dremproject-master/app/src/main/res/layout/activity_member.xml" value="0.22826086956521738" />
         <entry key="..\:/Android/dremproject-master/app/src/main/res/layout/activity_message.xml" value="0.22826086956521738" />
         <entry key="..\:/Android/dremproject-master/app/src/main/res/layout/activity_personal.xml" value="0.22826086956521738" />
+        <entry key="..\:/Android/dremproject-master/app/src/main/res/layout/activity_post.xml" value="0.21510416666666668" />
+        <entry key="..\:/Android/dremproject-master/app/src/main/res/layout/activity_post_text.xml" value="0.23854166666666668" />
         <entry key="..\:/Android/dremproject-master/app/src/main/res/layout/activity_profile.xml" value="0.22826086956521738" />
         <entry key="..\:/Android/dremproject-master/app/src/main/res/layout/activity_reg.xml" value="0.22826086956521738" />
         <entry key="..\:/Android/dremproject-master/app/src/main/res/layout/bar_layout.xml" value="0.22826086956521738" />
@@ -34,6 +36,8 @@
         <entry key="..\:/Android/dremproject-master/app/src/main/res/layout/menu_item.xml" value="0.20854700854700856" />
         <entry key="..\:/Android/dremproject-master/app/src/main/res/layout/notice_layout.xml" value="0.22826086956521738" />
         <entry key="..\:/Android/dremproject-master/app/src/main/res/layout/personal_item.xml" value="0.22826086956521738" />
+        <entry key="..\:/Android/dremproject-master/app/src/main/res/layout/post_item.xml" value="0.253125" />
+        <entry key="..\:/Android/dremproject-master/app/src/main/res/layout/post_item_text.xml" value="0.2375" />
         <entry key="..\:/Android/dremproject-master/app/src/main/res/layout/profile_item.xml" value="0.22826086956521738" />
         <entry key="..\:/Android/dremproject-master/app/src/main/res/layout/slider_item.xml" value="0.22826086956521738" />
         <entry key="..\:/Android/dremproject-master/app/src/main/res/layout/user_item.xml" value="0.25416666666666665" />

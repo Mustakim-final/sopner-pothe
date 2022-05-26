@@ -4,6 +4,8 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.Manifest;
 import android.content.ContentValues;
@@ -13,12 +15,15 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
+import com.example.ourproject.Adapter.PostAdapter;
+import com.example.ourproject.Model.Post;
 import com.example.ourproject.Model.ProfileModel;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
@@ -39,6 +44,7 @@ import com.karumi.dexter.PermissionToken;
 import com.karumi.dexter.listener.PermissionRequest;
 import com.karumi.dexter.listener.multi.MultiplePermissionsListener;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
@@ -48,11 +54,15 @@ public class MainProfileActivity extends AppCompatActivity {
 
     DatabaseReference reference;
     FirebaseUser firebaseUser;
-    CircleImageView circleImageView;
+    CircleImageView circleImageView,postcirculerImage;
     TextView textView;
+    RecyclerView recyclerView;
+    PostAdapter postAdapter;
+    List<Post> postList;
 
     EditText postEdit;
     ImageButton imageButton;
+    Button postMind;
 
     private Uri imageUri=null;
     private static final int IMAGE_REQUEST=1;
@@ -61,6 +71,7 @@ public class MainProfileActivity extends AppCompatActivity {
     private static final int GALLERY_CODE1=300;
     StorageReference storageReference;
     StorageTask storageTask;
+    FirebaseStorage firebaseStorage;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -72,8 +83,21 @@ public class MainProfileActivity extends AppCompatActivity {
         circleImageView=findViewById(R.id.myProfile_ID);
         textView=findViewById(R.id.myName_ID);
 
-        postEdit=findViewById(R.id.post_Text_ID);
-        imageButton=findViewById(R.id.post_Image_ID);
+
+        postcirculerImage=findViewById(R.id.postProfile_ID);
+        postMind=findViewById(R.id.postMind_ID);
+
+        postMind.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent=new Intent(MainProfileActivity.this,PostActivity.class);
+                startActivity(intent);
+            }
+        });
+
+
+
+        recyclerView=findViewById(R.id.post_recycler_ID);
 
         firebaseUser= FirebaseAuth.getInstance().getCurrentUser();
         reference= FirebaseDatabase.getInstance().getReference("member").child(firebaseUser.getUid());
@@ -99,6 +123,31 @@ public class MainProfileActivity extends AppCompatActivity {
             }
         });
 
+        reference.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                ProfileModel profileModel=snapshot.getValue(ProfileModel.class);
+
+                if (profileModel.getImageUrl().equals("default")){
+                    circleImageView.setImageResource(R.drawable.ic_baseline_perm_identity_24);
+
+                }else {
+                    Glide.with(MainProfileActivity.this).load(profileModel.getImageUrl()).into(postcirculerImage);
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
+
+
+
+
+
+
+
         circleImageView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -107,10 +156,88 @@ public class MainProfileActivity extends AppCompatActivity {
             }
         });
 
-        imageButton.setOnClickListener(new View.OnClickListener() {
+
+
+
+
+        recyclerView.setHasFixedSize(true);
+        LinearLayoutManager layoutManager=new LinearLayoutManager(getApplicationContext());
+        recyclerView.setLayoutManager(layoutManager);
+
+
+
+        redPost();
+
+
+
+    }
+
+
+    private void redPost() {
+
+
+
+        postList=new ArrayList<>();
+
+        firebaseStorage=FirebaseStorage.getInstance();
+        firebaseUser=FirebaseAuth.getInstance().getCurrentUser();
+        DatabaseReference reference=FirebaseDatabase.getInstance().getReference("Dream Post");
+
+
+        reference.addValueEventListener(new ValueEventListener() {
             @Override
-            public void onClick(View view) {
-                openGallery1();
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                postList.clear();
+
+                for (DataSnapshot dataSnapshot:snapshot.getChildren()){
+                    Post post=dataSnapshot.getValue(Post.class);
+                    post.setKey(dataSnapshot.getKey());
+
+                    if (post.getId().equals(firebaseUser.getUid())){
+                        postList.add(post);
+                    }
+                }
+
+                postAdapter=new PostAdapter(MainProfileActivity.this,postList);
+                recyclerView.setAdapter(postAdapter);
+
+                postAdapter.setOnClickListener(new PostAdapter.onItemClickListener() {
+                    @Override
+                    public void onItemClick(int position) {
+                        //Toast.makeText(MainProfileActivity.this,"Position: "+position,Toast.LENGTH_SHORT).show();
+                    }
+
+                    @Override
+                    public void onDelete(int position) {
+                        Toast.makeText(MainProfileActivity.this,"Position: "+position,Toast.LENGTH_SHORT).show();
+
+                        Post selectItem=postList.get(position);
+                        String key=selectItem.getKey();
+
+                        reference.child(key).removeValue();
+
+                        StorageReference storageReference=firebaseStorage.getReferenceFromUrl(selectItem.getImageUrl());
+                        storageReference.delete().addOnSuccessListener(new OnSuccessListener<Void>() {
+                            @Override
+                            public void onSuccess(Void unused) {
+                                reference.child(key).removeValue();
+                            }
+                        });
+
+                    }
+
+                    @Override
+                    public void onDownload(int position) {
+
+                    }
+                });
+
+
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
             }
         });
 
@@ -149,6 +276,7 @@ public class MainProfileActivity extends AppCompatActivity {
         intent.putExtra(MediaStore.EXTRA_OUTPUT,imageUri);
         startActivityForResult(intent,CAMERA_CODE);
     }
+
     private void openGallery() {
         Intent intent=new Intent();
         intent.setType(("image/*"));
@@ -156,12 +284,7 @@ public class MainProfileActivity extends AppCompatActivity {
         startActivityForResult(intent,GALLERY_CODE);
     }
 
-    private void openGallery1() {
-        Intent intent=new Intent();
-        intent.setType(("image/*"));
-        intent.setAction(Intent.ACTION_PICK);
-        startActivityForResult(intent,GALLERY_CODE1);
-    }
+
 
 
 
@@ -233,32 +356,7 @@ public class MainProfileActivity extends AppCompatActivity {
         }
 
 
-        if (requestCode==GALLERY_CODE1 && resultCode==RESULT_OK){
-            imageUri=data.getData();
-            String filepath= "Post/"+"post"+firebaseUser.getUid();
-            StorageReference reference= FirebaseStorage.getInstance().getReference(filepath);
-            reference.putFile(imageUri).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
-                @Override
-                public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
-                    Task<Uri> task=taskSnapshot.getMetadata().getReference().getDownloadUrl();
 
-                    task.addOnSuccessListener(new OnSuccessListener<Uri>() {
-                        @Override
-                        public void onSuccess(Uri uri) {
-                            String imageUri=uri.toString();
-                            DatabaseReference reference1=FirebaseDatabase.getInstance().getReference("Dream Post").child(firebaseUser.getUid());
-
-                            String new_id=reference1.push().getKey();
-
-                            HashMap<String,Object> hashMap=new HashMap<>();
-                            hashMap.put("imageUrl",imageUri);
-
-                            reference1.child(new_id).setValue(hashMap);
-
-                        }
-                    });
-                }
-            });
-        }
     }
+
 }

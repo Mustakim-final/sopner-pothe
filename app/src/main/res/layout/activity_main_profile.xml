@@ -30,33 +30,39 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
-        <EditText
-            android:layout_width="match_parent"
+
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/postProfile_ID"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginRight="5dp"
+            android:layout_toLeftOf="@+id/postMind_ID"
+            android:src="@mipmap/ic_launcher">
+
+        </de.hdodenhof.circleimageview.CircleImageView>
+
+        <Button
+            android:id="@+id/postMind_ID"
+            android:layout_width="350dp"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="10dp"
-            android:layout_marginRight="10dp"
-            android:id="@+id/post_Text_ID"
-            android:layout_toLeftOf="@id/post_Image_ID"
+            android:layout_alignParentRight="true"
 
-            android:hint="Post..."
-            >
+            android:layout_centerHorizontal="true"
 
-        </EditText>
+            android:text="whats your mind"
+            android:textAllCaps="false">
 
-        <ImageButton
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/post_Image_ID"
-            android:layout_alignParentEnd="true"
-            android:src="@drawable/ic_baseline_insert_photo_24"
-            >
+        </Button>
 
-        </ImageButton>
+
     </RelativeLayout>
 
     <androidx.recyclerview.widget.RecyclerView
         android:layout_width="match_parent"
         android:layout_marginTop="10dp"
+        android:id="@+id/post_recycler_ID"
         android:layout_height="match_parent">
 
     </androidx.recyclerview.widget.RecyclerView>
