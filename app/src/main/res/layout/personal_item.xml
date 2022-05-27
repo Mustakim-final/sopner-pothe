@@ -5,25 +5,25 @@
 
 
     <TextView
+        android:id="@+id/totalTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="300dp"
         android:text="মোট জমাঃ"
         android:textSize="20sp"
-        android:textStyle="bold"
-        android:layout_marginTop="300dp"
-        android:layout_marginLeft="20dp"
-        android:id="@+id/totalTitle">
+        android:textStyle="bold">
 
     </TextView>
 
     <TextView
+        android:id="@+id/totalAmount_ID"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="1000"
-        android:layout_toRightOf="@+id/totalTitle"
+        android:layout_marginLeft="2dp"
         android:layout_marginTop="302dp"
-        android:layout_marginLeft="10dp"
-        android:id="@+id/totalAmount_ID"
+        android:layout_toRightOf="@+id/totalTitle"
+        android:text="1000"
         android:textSize="18sp">
 
     </TextView>
@@ -37,7 +37,7 @@
         android:layout_toRightOf="@+id/totalAmount_ID"
         android:layout_marginTop="300dp"
         android:id="@+id/due_ID"
-        android:layout_marginLeft="100dp">
+        android:layout_marginLeft="50dp">
 
     </TextView>
 
@@ -45,7 +45,7 @@
         android:id="@+id/totalDue_ID"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="10dp"
+        android:layout_marginLeft="2dp"
         android:layout_marginTop="302dp"
         android:layout_toRightOf="@+id/due_ID"
         android:text="1000"

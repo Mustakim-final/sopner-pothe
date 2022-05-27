@@ -154,24 +154,28 @@ public class EditorPageActivity extends AppCompatActivity {
         String id=intent.getStringExtra("editor_userID");
 
         AlertDialog alertDialog=builder.show();
+
         EditText name=view.findViewById(R.id.editorbillName_ID);
         EditText amount=view.findViewById(R.id.editorbilAomunt_ID);
         EditText date=view.findViewById(R.id.editorbillDate_ID);
+        EditText paidDate=view.findViewById(R.id.editorbillPaidDate_ID);
         EditText status=view.findViewById(R.id.editorbillStatus_ID);
 
         Button button=view.findViewById(R.id.editorbillSubmit_ID);
 
         EditorPayment editorPayment=editorPaymentList.get(position);
+
         name.setText(editorPayment.getName());
         amount.setText(editorPayment.getAmount());
         date.setText(editorPayment.getDate());
+        paidDate.setText(editorPayment.getPaidDate());
         status.setText(editorPayment.getStatus());
 
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 reference=FirebaseDatabase.getInstance().getReference("Bill_folder").child(new_id);
-                EditorPayment editorPayment=new EditorPayment(new_id,name.getText().toString(),amount.getText().toString(),date.getText().toString(),status.getText().toString(),id);
+                EditorPayment editorPayment=new EditorPayment(new_id,name.getText().toString(),amount.getText().toString(),date.getText().toString(),paidDate.getText().toString(),status.getText().toString(),id);
                 reference.setValue(editorPayment);
 
                 Toast.makeText(EditorPageActivity.this, "data updated", Toast.LENGTH_SHORT).show();

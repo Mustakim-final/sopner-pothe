@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:id="@+id/drawer_ID"
-    tools:openDrawer="start"
+    tools:openDrawer=""
     tools:context=".HomeActivity">
 
 
@@ -19,7 +19,7 @@
 
         <androidx.appcompat.widget.Toolbar
             android:layout_width="match_parent"
-            android:layout_height="?attr/actionBarSize"
+            android:layout_height="wrap_content"
             android:id="@+id/toolBar_ID"
             android:background="@color/purple_200">
 
@@ -128,7 +128,7 @@
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:id="@+id/picCard_ID"
+                android:id="@+id/postCard_ID"
                 android:clickable="true"
                 android:layout_margin="10dp"
                 android:foreground="?android:attr/selectableItemBackground">
@@ -154,7 +154,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="ছবি">
+                        android:text="পোস্ট">
 
                     </TextView>
 

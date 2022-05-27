@@ -13,6 +13,7 @@ import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
+import java.util.Calendar;
 import java.util.HashMap;
 
 public class EditorManaulActivity extends AppCompatActivity {
@@ -21,6 +22,9 @@ public class EditorManaulActivity extends AppCompatActivity {
 
     FirebaseUser firebaseUser;
     Intent intent;
+
+    Calendar c;
+    String todaysDate;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -49,6 +53,9 @@ public class EditorManaulActivity extends AppCompatActivity {
                 String transaction=tranjectionEdit.getText().toString().trim();
                 String status=statusEdit.getText().toString();
 
+                c=Calendar.getInstance();
+                todaysDate=c.get(Calendar.DAY_OF_MONTH)+"/"+(c.get(Calendar.MONTH)+1)+"/"+c.get(Calendar.YEAR);
+
                 if (name.isEmpty()){
                     billerNameEdit.setError("আপনার নাম দিন");
                     billerNameEdit.requestFocus();
@@ -63,7 +70,7 @@ public class EditorManaulActivity extends AppCompatActivity {
                     return;
                 } else {
 
-                    sentData(name,amount,date,transaction,status,id);
+                    sentData(name,amount,date,transaction,status,id,todaysDate);
                 /*
                 billerNameEdit.setText("");
                 amountEdit.setText("");
@@ -88,7 +95,7 @@ public class EditorManaulActivity extends AppCompatActivity {
 
 
 
-    private void sentData(String name, String amount, String date, String transaction, String status, String id) {
+    private void sentData(String name, String amount, String date, String transaction, String status, String id,String todaysDate) {
         DatabaseReference reference= FirebaseDatabase.getInstance().getReference("Bill_folder");
         String new_id=reference.push().getKey();
 
@@ -97,6 +104,7 @@ public class EditorManaulActivity extends AppCompatActivity {
         hashMap.put("amount",amount);
         hashMap.put("date",date);
         hashMap.put("transaction",transaction);
+        hashMap.put("paidDate",todaysDate);
         hashMap.put("status",status);
         hashMap.put("id",id);
         hashMap.put("new_id",new_id);

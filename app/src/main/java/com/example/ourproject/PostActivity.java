@@ -19,10 +19,12 @@ import android.widget.Toast;
 import com.bumptech.glide.Glide;
 import com.example.ourproject.Model.Post;
 import com.example.ourproject.Model.ProfileModel;
+import com.firebase.ui.database.FirebaseArray;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -67,9 +69,12 @@ public class PostActivity extends AppCompatActivity implements View.OnClickListe
         profileName=findViewById(R.id.myName_ID);
         profileImage=findViewById(R.id.myProfile_ID);
 
+
         mAuth=FirebaseAuth.getInstance();
         firebaseUser=FirebaseAuth.getInstance().getCurrentUser();
         reference= FirebaseDatabase.getInstance().getReference("member").child(firebaseUser.getUid());
+
+
         reference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
@@ -81,6 +86,8 @@ public class PostActivity extends AppCompatActivity implements View.OnClickListe
                 }else {
                     Glide.with(getApplicationContext()).load(profileModel.getImageUrl()).into(profileImage);
                 }
+
+
             }
 
             @Override
@@ -95,7 +102,6 @@ public class PostActivity extends AppCompatActivity implements View.OnClickListe
         saveBtn=findViewById(R.id.savePostBtn_ID);
         saveBtn.setOnClickListener(this);
         postEdit=findViewById(R.id.postText_ID);
-        
         imageView=findViewById(R.id.imageView_ID);
 
 
@@ -160,24 +166,52 @@ public class PostActivity extends AppCompatActivity implements View.OnClickListe
 
         String post = postEdit.getText().toString();
 
+
+
+
+
+
         if (imageUri==null){
+
+
             FirebaseUser firebaseUser = FirebaseAuth.getInstance().getCurrentUser();
             String userID = firebaseUser.getUid();
 
+            reference=FirebaseDatabase.getInstance().getReference("member").child(userID);
+            reference.addValueEventListener(new ValueEventListener() {
+                @Override
+                public void onDataChange(@NonNull DataSnapshot snapshot) {
 
-            DatabaseReference reference1 = FirebaseDatabase.getInstance().getReference();
-
-
-            HashMap<String, Object> hashMap = new HashMap<>();
-            hashMap.put("post", post);
-            hashMap.put("id", userID);
-            hashMap.put("imageUrl","default");
-            reference1.child("Dream Post").push().setValue(hashMap);
-
-            postEdit.setText("");
+                    ProfileModel profileModel=snapshot.getValue(ProfileModel.class);
+                    String name=profileModel.getUsername();
+                    String imageUrl=profileModel.getImageUrl();
 
 
-            Toast.makeText(PostActivity.this, "Post done",   Toast.LENGTH_SHORT).show();
+                    DatabaseReference reference1 = FirebaseDatabase.getInstance().getReference();
+
+
+                    HashMap<String, Object> hashMap = new HashMap<>();
+                    hashMap.put("username",name);
+                    hashMap.put("imageUrl",imageUrl);
+                    hashMap.put("post", post);
+                    hashMap.put("id", userID);
+                    hashMap.put("imagePost","zero");
+                    reference1.child("Dream Post").push().setValue(hashMap);
+
+                    postEdit.setText("");
+
+
+                    Toast.makeText(PostActivity.this, "Post done",Toast.LENGTH_SHORT).show();
+
+                }
+
+                @Override
+                public void onCancelled(@NonNull DatabaseError error) {
+
+                }
+            });
+
+
 
         }else {
 
@@ -191,6 +225,7 @@ public class PostActivity extends AppCompatActivity implements View.OnClickListe
                     Task<Uri> task = taskSnapshot.getMetadata().getReference().getDownloadUrl();
 
 
+
                     task.addOnSuccessListener(new OnSuccessListener<Uri>() {
                         @Override
                         public void onSuccess(Uri uri) {
@@ -198,20 +233,42 @@ public class PostActivity extends AppCompatActivity implements View.OnClickListe
                             String userID = firebaseUser.getUid();
 
                             String imageUri = uri.toString();
-                            DatabaseReference reference1 = FirebaseDatabase.getInstance().getReference();
+
+                            reference=FirebaseDatabase.getInstance().getReference("member").child(userID);
+                            reference.addValueEventListener(new ValueEventListener() {
+                                @Override
+                                public void onDataChange(@NonNull DataSnapshot snapshot) {
+                                    ProfileModel profileModel=snapshot.getValue(ProfileModel.class);
+                                    String name=profileModel.getUsername();
+                                    String imageUrl=profileModel.getImageUrl();
 
 
-                            HashMap<String, Object> hashMap = new HashMap<>();
-                            hashMap.put("post", post);
-                            hashMap.put("id", userID);
-                            hashMap.put("imageUrl", imageUri);
+                                    DatabaseReference reference1 = FirebaseDatabase.getInstance().getReference();
 
-                            reference1.child("Dream Post").push().setValue(hashMap);
 
-                            postEdit.setText("");
-                            imageView.setVisibility(View.INVISIBLE);
+                                    HashMap<String, Object> hashMap = new HashMap<>();
+                                    hashMap.put("username",name);
+                                    hashMap.put("imageUrl",imageUrl);
+                                    hashMap.put("post", post);
+                                    hashMap.put("id", userID);
+                                    hashMap.put("imagePost", imageUri);
 
-                            Toast.makeText(PostActivity.this, "Post done", Toast.LENGTH_SHORT).show();
+                                    reference1.child("Dream Post").push().setValue(hashMap);
+
+                                    postEdit.setText("");
+                                    imageView.setVisibility(View.INVISIBLE);
+
+                                    Toast.makeText(PostActivity.this, "Post done", Toast.LENGTH_SHORT).show();
+
+                                }
+
+                                @Override
+                                public void onCancelled(@NonNull DatabaseError error) {
+
+                                }
+                            });
+
+
 
 
 

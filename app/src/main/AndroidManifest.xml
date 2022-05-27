@@ -15,6 +15,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.OurProject">
         <activity
+            android:name=".PublicPostActivity"
+            android:exported="false" />
+        <activity
             android:name=".PostActivity"
             android:exported="false" />
         <activity

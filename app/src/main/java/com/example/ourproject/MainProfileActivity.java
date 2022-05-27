@@ -8,13 +8,16 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.Manifest;
+import android.app.ProgressDialog;
 import android.content.ContentValues;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.os.Environment;
 import android.provider.MediaStore;
 import android.view.View;
+import android.webkit.URLUtil;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
@@ -22,6 +25,14 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
+import com.downloader.Error;
+import com.downloader.OnCancelListener;
+import com.downloader.OnDownloadListener;
+import com.downloader.OnPauseListener;
+import com.downloader.OnProgressListener;
+import com.downloader.OnStartOrResumeListener;
+import com.downloader.PRDownloader;
+import com.downloader.Progress;
 import com.example.ourproject.Adapter.PostAdapter;
 import com.example.ourproject.Model.Post;
 import com.example.ourproject.Model.ProfileModel;
@@ -44,6 +55,7 @@ import com.karumi.dexter.PermissionToken;
 import com.karumi.dexter.listener.PermissionRequest;
 import com.karumi.dexter.listener.multi.MultiplePermissionsListener;
 
+import java.io.File;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -72,6 +84,8 @@ public class MainProfileActivity extends AppCompatActivity {
     StorageReference storageReference;
     StorageTask storageTask;
     FirebaseStorage firebaseStorage;
+
+    private String url;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -176,7 +190,6 @@ public class MainProfileActivity extends AppCompatActivity {
     private void redPost() {
 
 
-
         postList=new ArrayList<>();
 
         firebaseStorage=FirebaseStorage.getInstance();
@@ -214,13 +227,17 @@ public class MainProfileActivity extends AppCompatActivity {
                         Post selectItem=postList.get(position);
                         String key=selectItem.getKey();
 
+
                         reference.child(key).removeValue();
 
-                        StorageReference storageReference=firebaseStorage.getReferenceFromUrl(selectItem.getImageUrl());
+
+
+                        StorageReference storageReference=firebaseStorage.getReferenceFromUrl(selectItem.getImagePost());
                         storageReference.delete().addOnSuccessListener(new OnSuccessListener<Void>() {
                             @Override
                             public void onSuccess(Void unused) {
                                 reference.child(key).removeValue();
+
                             }
                         });
 
@@ -228,7 +245,10 @@ public class MainProfileActivity extends AppCompatActivity {
 
                     @Override
                     public void onDownload(int position) {
+                        Post selectItem=postList.get(position);
 
+                        url=selectItem.getImagePost();
+                        downloadImage(url,position);
                     }
                 });
 
@@ -244,6 +264,57 @@ public class MainProfileActivity extends AppCompatActivity {
 
     }
 
+    private void downloadImage(String url, int position) {
+        ProgressDialog pd=new ProgressDialog(this);
+        pd.setMessage("Downloading...");
+        pd.setCancelable(false);
+        pd.show();
+
+        File file= Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS);
+
+        PRDownloader.download(url, file.getPath(), URLUtil.guessFileName(url,null,null))
+                .build()
+                .setOnStartOrResumeListener(new OnStartOrResumeListener() {
+                    @Override
+                    public void onStartOrResume() {
+
+                    }
+                })
+                .setOnPauseListener(new OnPauseListener() {
+                    @Override
+                    public void onPause() {
+
+                    }
+                })
+                .setOnCancelListener(new OnCancelListener() {
+                    @Override
+                    public void onCancel() {
+
+                    }
+                })
+                .setOnProgressListener(new OnProgressListener() {
+                    @Override
+                    public void onProgress(Progress progress) {
+                        Long per=progress.currentBytes*100/progress.totalBytes;
+
+                        pd.setMessage("Downloading: "+per+" %");
+
+                    }
+                })
+                .start(new OnDownloadListener() {
+                    @Override
+                    public void onDownloadComplete() {
+                        pd.dismiss();
+                        Toast.makeText(MainProfileActivity.this,"Done",Toast.LENGTH_SHORT).show();
+                    }
+
+                    @Override
+                    public void onError(Error error) {
+                        Toast.makeText(MainProfileActivity.this,"Error",Toast.LENGTH_SHORT).show();
+                    }
+                });
+
+    }
 
 
     private void openImage() {
@@ -322,7 +393,6 @@ public class MainProfileActivity extends AppCompatActivity {
                             HashMap<String,Object> hashMap=new HashMap<>();
                             hashMap.put("imageUrl",imageUri);
                             reference1.updateChildren(hashMap);
-
                         }
                     });
                 }
@@ -348,6 +418,7 @@ public class MainProfileActivity extends AppCompatActivity {
                             HashMap<String,Object> hashMap=new HashMap<>();
                             hashMap.put("imageUrl",imageUri);
                             reference1.updateChildren(hashMap);
+
 
                         }
                     });

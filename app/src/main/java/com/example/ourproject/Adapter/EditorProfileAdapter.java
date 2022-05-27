@@ -46,16 +46,18 @@ public class EditorProfileAdapter extends ArrayAdapter<EditorPayment> {
     public View getView(int position,View convertView,ViewGroup parent) {
 
         convertView=LayoutInflater.from(context).inflate(R.layout.editor_profile_item,parent,false);
-        TextView name,amount,date,status;
+        TextView name,amount,date,paidDate,status;
         name=convertView.findViewById(R.id.editortbName_ID);
         amount=convertView.findViewById(R.id.editortbAmount_ID);
         date=convertView.findViewById(R.id.editortbDate_ID);
+        paidDate=convertView.findViewById(R.id.editortbPayedDate_ID);
         status=convertView.findViewById(R.id.editortbStatus_ID);
 
         EditorPayment editorPayment=editorPaymentList.get(position);
         name.setText(editorPayment.getName());
         amount.setText(editorPayment.getAmount());
         date.setText(editorPayment.getDate());
+        paidDate.setText(editorPayment.getPaidDate());
         status.setText(editorPayment.getStatus());
 
         return convertView;

@@ -9,7 +9,9 @@
 
     <include
         android:id="@+id/tool_bar_ID"
-        layout="@layout/bar_layout"></include>
+        layout="@layout/bar_layout">
+
+    </include>
 
 
     <androidx.cardview.widget.CardView

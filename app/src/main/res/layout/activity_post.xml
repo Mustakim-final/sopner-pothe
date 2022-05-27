@@ -13,11 +13,11 @@
         android:layout_marginTop="20dp">
 
         <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/myProfile_ID"
             android:layout_width="80dp"
             android:layout_height="80dp"
-            android:src="@mipmap/ic_launcher"
             android:layout_marginLeft="10dp"
-            android:id="@+id/myProfile_ID">
+            android:src="@mipmap/ic_launcher">
 
         </de.hdodenhof.circleimageview.CircleImageView>
 
@@ -45,7 +45,9 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="5dp"
             android:layout_weight="0.25"
-            android:hint="Enter Image Name"></EditText>
+            android:hint="Enter Image Name">
+
+        </EditText>
 
         <Button
             android:id="@+id/savePostBtn_ID"

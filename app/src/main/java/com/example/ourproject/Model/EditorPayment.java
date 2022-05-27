@@ -1,18 +1,20 @@
 package com.example.ourproject.Model;
 
 public class EditorPayment {
-    private String  new_id,name,amount,date,status,id;
+    private String  new_id,name,amount,date,paidDate,status,id;
 
     public EditorPayment() {
     }
 
-    public EditorPayment(String new_id, String name, String amount, String date, String status,String id) {
+    public EditorPayment(String new_id, String name, String amount, String date,String paidDate, String status,String id) {
         this.new_id = new_id;
         this.name = name;
         this.amount = amount;
         this.date = date;
         this.status = status;
         this.id=id;
+        this.paidDate=paidDate;
+
     }
 
     public String getNew_id() {
@@ -61,5 +63,13 @@ public class EditorPayment {
 
     public void setId(String id) {
         this.id = id;
+    }
+
+    public String getPaidDate() {
+        return paidDate;
+    }
+
+    public void setPaidDate(String paidDate) {
+        this.paidDate = paidDate;
     }
 }

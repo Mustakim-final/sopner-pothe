@@ -119,15 +119,26 @@ public class MainActivity extends AppCompatActivity {
                             editText.requestFocus();
                             return;
                         }else {
-                            mAuth.sendPasswordResetEmail(email).addOnSuccessListener(new OnSuccessListener<Void>() {
+//                            mAuth.sendPasswordResetEmail(email).addOnSuccessListener(new OnSuccessListener<Void>() {
+//                                @Override
+//                                public void onSuccess(Void unused) {
+//                                    Toast.makeText(MainActivity.this,"আপনার মেইল চেক করুন।",Toast.LENGTH_LONG).show();
+//                                }
+//                            }).addOnFailureListener(new OnFailureListener() {
+//                                @Override
+//                                public void onFailure(@NonNull Exception e) {
+//                                    Toast.makeText(MainActivity.this,"সঠিক মেইল দিন।",Toast.LENGTH_LONG).show();
+//                                }
+//                            });
+
+                            FirebaseAuth.getInstance().sendPasswordResetEmail(email).addOnCompleteListener(new OnCompleteListener<Void>() {
                                 @Override
-                                public void onSuccess(Void unused) {
-                                    Toast.makeText(MainActivity.this,"আপনার মেইল চেক করুন।",Toast.LENGTH_LONG).show();
-                                }
-                            }).addOnFailureListener(new OnFailureListener() {
-                                @Override
-                                public void onFailure(@NonNull Exception e) {
-                                    Toast.makeText(MainActivity.this,"সঠিক মেইল দিন।",Toast.LENGTH_LONG).show();
+                                public void onComplete(@NonNull Task<Void> task) {
+                                    if (task.isSuccessful()){
+                                        Toast.makeText(MainActivity.this,"আপনার মেইল চেক করুন।",Toast.LENGTH_LONG).show();
+                                    }else {
+                                        Toast.makeText(MainActivity.this,task.getException().getMessage(),Toast.LENGTH_LONG).show();
+                                    }
                                 }
                             });
                         }

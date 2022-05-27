@@ -1,18 +1,19 @@
 package com.example.ourproject.Model;
 
 public class Payment {
-    private String name,amount,date,transaction,id,status;
+    private String name,amount,date,paidDate,transaction,id,status;
 
     public Payment() {
     }
 
-    public Payment(String name, String amount, String date, String transaction, String id,String status) {
+    public Payment(String name, String amount, String date,String paidDate, String transaction, String id,String status) {
         this.name = name;
         this.amount = amount;
         this.date = date;
         this.transaction = transaction;
         this.id = id;
         this.status=status;
+        this.paidDate=paidDate;
     }
 
     public String getName() {
@@ -61,5 +62,13 @@ public class Payment {
 
     public void setStatus(String status) {
         this.status = status;
+    }
+
+    public String getPaidDate() {
+        return paidDate;
+    }
+
+    public void setPaidDate(String paidDate) {
+        this.paidDate = paidDate;
     }
 }

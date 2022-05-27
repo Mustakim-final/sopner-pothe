@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:stretchColumns="1,2,3,4,5"
-    android:layout_margin="8dp"
+    android:layout_margin="1dp"
 
     tools:context=".ProfileActivity">
 
@@ -14,24 +14,33 @@
     <TableRow>
 
         <TextView
-            android:text="Name"
-            android:textSize="20sp"
+            android:text="নাম      "
+            android:textSize="15sp"
             android:textStyle="bold"
             android:padding="10dp"
             android:layout_column="1"
             >
         </TextView>
         <TextView
-            android:text="Amount"
-            android:textSize="20sp"
+            android:text="টাকা  "
+            android:textSize="15sp"
             android:textStyle="bold"
             android:padding="10dp"
             android:layout_column="1"
             >
         </TextView>
         <TextView
-            android:text="Date"
-            android:textSize="20sp"
+            android:text="তারিখ"
+            android:textSize="15sp"
+            android:textStyle="bold"
+            android:padding="10dp"
+            android:layout_column="1"
+            >
+        </TextView>
+
+        <TextView
+            android:text="জমার তারিখ"
+            android:textSize="15sp"
             android:textStyle="bold"
             android:padding="10dp"
             android:layout_column="1"
@@ -40,7 +49,7 @@
 
         <TextView
             android:text="Status"
-            android:textSize="20sp"
+            android:textSize="15sp"
             android:textStyle="bold"
             android:padding="10dp"
             android:layout_column="1"

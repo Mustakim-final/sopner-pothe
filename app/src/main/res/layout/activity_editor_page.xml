@@ -12,24 +12,33 @@
     <TableRow>
 
         <TextView
-            android:text="Name"
-            android:textSize="20sp"
+            android:text="নাম        "
+            android:textStyle="bold"
+            android:textSize="15sp"
+            android:padding="10dp"
+            android:layout_column="1"
+            >
+        </TextView>
+        <TextView
+            android:text="টাকা"
+            android:textSize="15sp"
             android:textStyle="bold"
             android:padding="10dp"
             android:layout_column="1"
             >
         </TextView>
         <TextView
-            android:text="Amount"
-            android:textSize="20sp"
+            android:text="তারিখ"
+            android:textSize="15sp"
             android:textStyle="bold"
             android:padding="10dp"
             android:layout_column="1"
             >
         </TextView>
+
         <TextView
-            android:text="Date"
-            android:textSize="20sp"
+            android:text="জমার তারিখ"
+            android:textSize="15sp"
             android:textStyle="bold"
             android:padding="10dp"
             android:layout_column="1"
@@ -38,7 +47,7 @@
 
         <TextView
             android:text="Status"
-            android:textSize="20sp"
+            android:textSize="15sp"
             android:textStyle="bold"
             android:padding="10dp"
             android:layout_column="1"

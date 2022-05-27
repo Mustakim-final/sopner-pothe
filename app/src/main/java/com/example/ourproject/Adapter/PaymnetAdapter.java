@@ -38,6 +38,7 @@ public class PaymnetAdapter extends RecyclerView.Adapter<PaymnetAdapter.MyHolder
             holder.nameText.setText(payment.getName());
             holder.amountText.setText(payment.getAmount());
             holder.dateText.setText(payment.getDate());
+            holder.paidDateText.setText(payment.getPaidDate());
             holder.statusText.setText(payment.getStatus());
 
         }else {
@@ -51,13 +52,14 @@ public class PaymnetAdapter extends RecyclerView.Adapter<PaymnetAdapter.MyHolder
     }
 
     public class MyHolder extends RecyclerView.ViewHolder{
-        TextView nameText,amountText,dateText,statusText;
+        TextView nameText,amountText,dateText,paidDateText,statusText;
         public MyHolder(@NonNull View itemView) {
             super(itemView);
 
             nameText=itemView.findViewById(R.id.tbName_ID);
             amountText=itemView.findViewById(R.id.tbAmount_ID);
             dateText=itemView.findViewById(R.id.tbDate_ID);
+            paidDateText=itemView.findViewById(R.id.tbPayedDate_ID);
             statusText=itemView.findViewById(R.id.tbStatus_ID);
         }
     }

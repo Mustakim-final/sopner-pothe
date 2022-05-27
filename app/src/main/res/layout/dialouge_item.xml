@@ -33,8 +33,10 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/editorbillName_ID"
-        android:layout_margin="10dp"
+        android:layout_marginStart="10dp"
         android:layout_marginTop="10dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginBottom="10dp"
         android:hint="টাকার পরিমাণ">
 
     </EditText>
@@ -43,17 +45,32 @@
         android:id="@+id/editorbillDate_ID"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="10dp"
         android:layout_below="@id/editorbilAomunt_ID"
+        android:layout_marginStart="10dp"
         android:layout_marginTop="10dp"
-        android:hint="তারিখঃ মাস/ দিন / বছর">
+        android:layout_marginEnd="10dp"
+        android:layout_marginBottom="10dp"
+        android:hint="তারিখঃ দিন/মাস/বছর">
+
+    </EditText>
+
+    <EditText
+        android:id="@+id/editorbillPaidDate_ID"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/editorbillDate_ID"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginBottom="10dp"
+        android:hint="জমার তারিখঃ দিন/মাস/বছর">
 
     </EditText>
 
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/editorbillDate_ID"
+        android:layout_below="@id/editorbillPaidDate_ID"
         android:layout_marginTop="10dp"
         android:layout_margin="10dp"
         android:hint="নিশ্চিত করণ"

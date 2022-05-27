@@ -1,10 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:background="#A6ACD5"
     android:orientation="vertical"
-    >
+    android:layout_height="wrap_content">
+
 
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
@@ -17,7 +16,7 @@
             android:layout_height="match_parent">
 
             <de.hdodenhof.circleimageview.CircleImageView
-                android:id="@+id/postProfileImg_ID"
+                android:id="@+id/post_my_Profile_ID"
                 android:layout_width="40dp"
                 android:layout_height="40dp"
                 android:layout_marginTop="5dp"
@@ -26,21 +25,21 @@
             </de.hdodenhof.circleimageview.CircleImageView>
 
             <TextView
+                android:id="@+id/post_myName_ID"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_toRightOf="@+id/postProfileImg_ID"
                 android:layout_marginLeft="10dp"
                 android:layout_marginTop="10dp"
-                android:id="@+id/postProfileName_ID"
+                android:layout_toRightOf="@+id/post_my_Profile_ID"
                 android:text="Name">
 
             </TextView>
 
             <TextView
-                android:id="@+id/post_text_ID"
+                android:id="@+id/post_public_text_ID"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/postProfileName_ID"
+                android:layout_below="@+id/post_myName_ID"
                 android:layout_marginStart="10dp"
                 android:layout_marginTop="10dp"
                 android:layout_marginEnd="10dp"
@@ -51,20 +50,41 @@
             </TextView>
 
             <ImageView
-                android:id="@+id/post_Photo"
+                android:id="@+id/post_public_Photo"
                 android:layout_width="390dp"
                 android:layout_height="390dp"
-                android:layout_below="@+id/post_text_ID"
+                android:layout_below="@+id/post_public_text_ID"
                 android:layout_marginTop="2dp"
-
                 android:src="@drawable/ic_baseline_insert_photo_24">
 
             </ImageView>
 
+
+            <ImageView
+                android:id="@+id/likeImageBtn_ID"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:visibility="gone"
+                android:layout_below="@+id/post_public_Photo"
+                android:src="@drawable/ic_baseline_favorite_border_24">
+
+            </ImageView>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="0"
+                android:layout_marginTop="2dp"
+                android:visibility="gone"
+                android:layout_below="@+id/post_public_Photo"
+                android:layout_toRightOf="@+id/likeImageBtn_ID"
+                android:layout_marginLeft="5dp"
+                android:id="@+id/likeCountText_ID">
+
+            </TextView>
         </RelativeLayout>
 
     </androidx.cardview.widget.CardView>
-
 
 
 </LinearLayout>

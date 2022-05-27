@@ -49,7 +49,7 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
     ActionBarDrawerToggle toggle;
     Toolbar toolbar;
 
-    CardView memberCard,photoCard,payCard;
+    CardView memberCard,postCard,payCard;
 
     RecyclerView recyclerView;
     NoticeAdapter noticeAdapter;
@@ -119,9 +119,11 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
         sliderView.startAutoCycle();
 
         memberCard=findViewById(R.id.memberCard_ID);
-        photoCard=findViewById(R.id.picCard_ID);
+        postCard=findViewById(R.id.postCard_ID);
         payCard=findViewById(R.id.billCard_ID);
         profileName=findViewById(R.id.profile_ID);
+
+
 
         recyclerView=findViewById(R.id.noticeRecyclerView);
         recyclerView.setHasFixedSize(true);
@@ -139,10 +141,11 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
             }
         });
 
-        photoCard.setOnClickListener(new View.OnClickListener() {
+        postCard.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                Intent intent=new Intent(HomeActivity.this,PublicPostActivity.class);
+                startActivity(intent);
             }
         });
 
